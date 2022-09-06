@@ -1,3 +1,4 @@
+import { getCssText, globalStyles } from "app/core/components/stitches"
 import Document, { Html, Main, NextScript, Head } from "next/document"
 
 class MyDocument extends Document {
@@ -7,9 +8,17 @@ class MyDocument extends Document {
   //   return {...initialProps}
   // }
   render() {
+    globalStyles()
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

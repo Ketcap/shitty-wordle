@@ -1,4 +1,6 @@
-// import db from "./index"
+import db from "./index"
+import { addDays } from "date-fns"
+import { getTodayString } from "app/core/util"
 
 /*
  * This seed function is executed when you run `blitz db seed`.
@@ -6,10 +8,115 @@
  * Probably you want to use a library like https://chancejs.com
  * to easily generate realistic data.
  */
+
+const words = ["jazzy",
+  "pizza",
+  "quack",
+  "crazy",
+  "affix",
+  "quake",
+  "quark",
+  "hazel",
+  "quash",
+  "wacky",
+  "waltz",
+  "whack",
+  "amaze",
+  "chaff",
+  "craze",
+  "gawky",
+  "kayak",
+  "khaki",
+  "maize",
+  "maxim",
+  "plaza",
+  "qualm",
+  "topaz",
+  "flaky",
+  "gauze",
+  "gazer",
+  "glaze",
+  "graze",
+  "happy",
+  "knack",
+  "rajah",
+  "shaky",
+  "squad",
+  "waxen",
+  "axiom",
+  "azure",
+  "chalk",
+  "champ",
+  "equal",
+  "exact",
+  "flack",
+  "heavy",
+  "major",
+  "mammy",
+  "quail",
+  "quart",
+  "quasi",
+  "quota",
+  "razor",
+  "savvy",
+  "shack",
+  "squat",
+  "tacky",
+  "taffy",
+  "wharf",
+  "wrack",
+  "zonal",
+  "chafe",
+  "clack",
+  "crack",
+  "fancy",
+  "foamy",
+  "harpy",
+  "hatch",
+  "havoc",
+  "kappa",
+  "smack",
+  "vodka",
+  "watch",
+  "yacht",
+  "amply",
+  "annex",
+  "apply",
+  "askew",
+  "awake",
+  "awoke",
+  "axial",
+  "axion",
+  "cache",
+  "caddy",
+  "catch",
+  "charm",
+  "chasm",
+  "cheap",
+  "coach",
+  "dwarf",
+  "exalt",
+  "extra",
+  "flake",
+  "flank",
+  "flask",
+  "frank",
+  "freak",
+  "gaffe",
+  "gayly",
+  "gravy",
+  "handy",
+  "hardy",
+  "heady",
+  "jaunt"]
 const seed = async () => {
-  // for (let i = 0; i < 5; i++) {
-  //   await db.project.create({ data: { name: "Project " + i } })
-  // }
+  const currentDate = getTodayString()
+  await db.wordles.createMany({
+    data: words.map((word, index) => ({
+      word,
+      date: addDays(new Date(currentDate), index)
+    }))
+  })
 }
 
 export default seed

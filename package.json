@@ -9,7 +9,7 @@
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepare": "husky install"
+    "db": "docker-compose up -d"
   },
   "prisma": {
     "schema": "db/schema.prisma"
@@ -27,15 +27,17 @@
     "@blitzjs/auth": "2.0.0-beta.3",
     "@blitzjs/next": "2.0.0-beta.3",
     "@blitzjs/rpc": "2.0.0-beta.3",
-    "@prisma/client": "4.0.0",
+    "@hookform/resolvers": "2.9.7",
+    "@prisma/client": "4.3.1",
+    "@stitches/react": "1.2.8",
     "blitz": "2.0.0-beta.3",
+    "date-fns": "2.29.2",
     "next": "12.2.5",
-    "prisma": "4.0.0",
+    "prisma": "4.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "zod": "3.17.3",
     "react-hook-form": "7.34.2",
-    "@hookform/resolvers": "2.9.7"
+    "zod": "3.17.3"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "12.0.8",
@@ -48,7 +50,6 @@
     "eslint": "7.32.0",
     "eslint-config-next": "12.2.0",
     "eslint-config-prettier": "8.5.0",
-    "husky": "7.0.4",
     "jest": "27.5.1",
     "lint-staged": "12.1.7",
     "prettier": "^2.5.1",
