@@ -18,6 +18,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
             rel="stylesheet"
           />
+          <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js" />
         </Head>
         <body>
           <Main />

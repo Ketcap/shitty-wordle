@@ -32,8 +32,10 @@ const StyledLettter = styled("div", {
 interface LetterProps {
   state: Parameters<typeof StyledLettter>[0]["state"]
   letter: string
+  isCurrent: boolean
 }
 
-export const Letter = ({ state, letter }: LetterProps) => {
-  return <StyledLettter state={state}>{letter}</StyledLettter>
+export const Letter = ({ state, letter, isCurrent }: LetterProps) => {
+  const showPoop = !isCurrent && state === 0 && letter !== ""
+  return <StyledLettter state={state}>{showPoop ? "💩" : letter}</StyledLettter>
 }

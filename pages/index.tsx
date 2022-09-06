@@ -63,6 +63,13 @@ const Home: BlitzPage<HomeProps> = ({ session, currentDate }) => {
 
     await guessTheWord(word)
       .then((result) => {
+        // @ts-ignore
+        const jsConfetti = new JSConfetti()
+        jsConfetti.addConfetti({
+          emojis: ["💩", "🍆", "✨"],
+          emojiSize: 50,
+          confettiNumber: 80,
+        })
         setGuessList((prev) => [...prev, result as unknown as GuessResult])
         setCurrentWord([])
         setCurrentGuess((prev) => prev + 1)
@@ -115,11 +122,13 @@ const Home: BlitzPage<HomeProps> = ({ session, currentDate }) => {
         </GridArea>
         <LetterGrid>
           {GUESS_ARRAY.map((_, guessIndex) => {
-            const word = guessIndex === currentGuess ? currentWord : guessList[guessIndex]
+            const isCurrent = guessIndex === currentGuess
+            const word = isCurrent ? currentWord : guessList[guessIndex]
 
             return new Array(5).fill("").map((_, index) => {
               return (
                 <Letter
+                  isCurrent={isCurrent}
                   letter={word?.[index]?.letter ?? ""}
                   // @ts-ignore
                   state={word?.[index]?.state ?? 0}

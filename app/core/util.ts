@@ -1,1 +1,1 @@
-export const getTodayString = () => new Date("2022-09-08").toISOString().split("T")[0] as string;
+export const getTodayString = () => new Date().toISOString().split("T")[0] as string;
